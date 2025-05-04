@@ -4,13 +4,17 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'mvn clean install'
+                dir('project-dir') {
+                    sh 'mvn clean install'
+                }
             }
         }
 
         stage('Test') {
             steps {
-                sh 'mvn test'
+                dir('project-dir') {
+                    sh 'mvn test'
+                }
             }
         }
 
@@ -19,7 +23,9 @@ pipeline {
                 branch 'master'
             }
             steps {
-                sh 'mvn deploy'
+                dir('project-dir') {
+                    sh 'mvn deploy'
+                }
             }
         }
     }
