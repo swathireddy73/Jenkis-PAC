@@ -1,0 +1,17 @@
+pipeline {
+    agent any
+    stages {
+        stage("stage1") {
+            steps {
+                script {
+                    echo "hello, welcome to Jenkins PAC"
+                }
+            }
+        }
+stage("stage2") {
+            steps {
+                script {
+                  var1=10
+printlan "Hello here is your variable valu ${var1}"
+    }
+}
