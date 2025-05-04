@@ -11,7 +11,7 @@ pipeline {
         stage("stage2") {
             steps {
                 script {
-                    def var1 = 10
+                     var1 = 10
                     echo "Hello, here is your variable value: ${var1}"
                 }
             }
