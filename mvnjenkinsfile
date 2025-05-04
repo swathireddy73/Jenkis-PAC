@@ -27,7 +27,7 @@ pipeline {
                 branch 'main'
             }
             steps {
-                dir('project-dir') {
+                dir('/var/lib/jenkins/workspace/mvn/project-dir') {
                     sh 'mvn deploy'
                 }
             }
