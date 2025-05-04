@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                dir('/var/lib/jenkins/workspace/mvn/project-dir') {
+                dir('project-dir') {
                     sh 'mvn clean install'
                 }
             }
@@ -27,7 +27,7 @@ pipeline {
                 branch 'main'
             }
             steps {
-                dir('/var/lib/jenkins/workspace/mvn/project-dir') {
+                dir('project-dir') {
                     sh 'mvn deploy'
                 }
             }
