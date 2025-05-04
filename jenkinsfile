@@ -8,10 +8,14 @@ pipeline {
                 }
             }
         }
-stage("stage2") {
+        stage("stage2") {
             steps {
                 script {
-                  var1=10
-printlan "Hello here is your variable valu ${var1}"
+                    def var1 = 10
+                    echo "Hello, here is your variable value: ${var1}"
+                }
+            }
+        }
     }
 }
+
