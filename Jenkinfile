@@ -1,22 +1,22 @@
 pipeline {
     agent any
     stages {
-        stage("stage1") {
+        stage('welcome to functions concept') {
             steps {
                 script {
-                    // Define a function with untyped parameters and return value
-                    def myfunc = { a, b ->
-                        def result = a + b
-                        echo "Hello, welcome to functions concept"
-                        echo "Sum of ${a} and ${b} is ${result}"
-                        return result
+                    def obj1 = new File("/tmp/swa.txt")
+                    
+                    // Overwrite file content
+                    obj1.write("welcome to PAC file operation\n")
+                    
+                    // Append additional content
+                    obj1.append("this is my line to append\n")
+
+                    // Read and print each line
+                    def lines = obj1.readLines()
+                    for (line in lines) {
+                        echo "Line: ${line}"
                     }
-
-                    def res1 = myfunc(10, 20)
-                    def res2 = myfunc(100, 200)
-
-                    echo "Result 1: ${res1}"
-                    echo "Result 2: ${res2}"
                 }
             }
         }
