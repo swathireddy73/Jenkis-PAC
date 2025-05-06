@@ -1,21 +1,19 @@
 pipeline {
     agent any
     stages {
-        stage("stage1") {
+        stage("stage") {
             steps {
                 script {
-                    echo "hello, welcome to Jenkins PAC"
-                }
-            }
-        }
-        stage("stage2") {
-            steps {
-                script {
-                     var1 = 10
-                    echo "Hello, here is your variable value: ${var1}"
+                    def a = 10
+                    def b = 20
+
+                    if (a >= b) {
+                        println "Your a value is big, ${a}"
+                    } else {
+                        println "Your b value is big, ${b}"
+                    }
                 }
             }
         }
     }
 }
-
