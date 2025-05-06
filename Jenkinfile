@@ -4,15 +4,12 @@ pipeline {
         stage("stage1") {
             steps {
                 script {
-                    
-                    def myfunc(int a, int b) {
-result = a+b
+                    // Define a function with untyped parameters and return value
+                    def myfunc = { a, b ->
+                        def result = a + b
                         echo "Hello, welcome to functions concept"
+                        echo "Sum of ${a} and ${b} is ${result}"
+                        return result
                     }
-                    myfunc(10,20)
-                    myfunc(100,200)
-                }
-            }
-        }
-    }
-}
+
+                    def res1 = myfunc(10, 20)
