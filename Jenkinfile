@@ -1,31 +1,21 @@
 pipeline {
     agent any
-
-    parameters {
-        choice(name: 'env', choices: ['dev', 'prod', 'sit', 'qa', 'pre-prod'], description: 'Select environment')
-    }
-
-    environment {
-        subject = "jenkins pac"
-    }
-
     stages {
-        stage("stage1") {
+        stage("stage") {
             steps {
                 script {
-                    def var1 = 20
-                    def string = "this is Jenkins pac"
+                    def a = input message: 'Please enter value for a', parameters: [string(defaultValue: '10', description: 'This is the value of a', name: 'a')]
+                    def b = input message: 'Please enter value for b', parameters: [string(defaultValue: '20', description: 'This is the value of b', name: 'b')]
 
-                    echo "Hello, welcome to Jenkins PAC"
-                    echo "Here are your user-defined variables: ${var1}, ${string}"
-                    echo "Here is your global/predefined variable (build result): ${currentBuild.result}"
-                    echo "Here is your global/predefined variable (build ID): ${currentBuild.id}"
-                    echo "Here is your environment variable: ${env.subject}"
-                    echo "Here is your job name: ${env.JOB_NAME}"
-                    echo "Here is your selected parameter (env): ${params.env}"
+                    if (a.toInteger() >= b.toInteger()) {
+                        echo "Your a value is big: ${a}"
+                    } else {
+                        echo "Your b value is big: ${b}"
+                    }
                 }
             }
         }
     }
 }
+
 
