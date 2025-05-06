@@ -1,19 +1,17 @@
 pipeline {
     agent any
     stages {
-        stage("stage") {
+        stage("working with loops") {
             steps {
                 script {
-                    def a = 10
-                    def b = 20
-
-                    if (a >= b) {
-                        println "Your a value is big, ${a}"
-                    } else {
-                        println "Your b value is big, ${b}"
+                    def a = 1
+                    while (a <= 10) {
+                        println "Your looped value: ${a}"
+                        a = a + 1
                     }
                 }
             }
         }
     }
 }
+
