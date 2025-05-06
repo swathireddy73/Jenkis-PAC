@@ -4,14 +4,17 @@ pipeline {
         stage("working with loops") {
             steps {
                 script {
-                    a = 1
-                    while (a <= 10) {
-                        println "Your looped value: ${a}"
-                        a = a + 1
+                  
+                    for (i in 1..10) {
+                        println "Your looped value: ${i}"
+                    }
+
+                    
+                    for (ravi in [10, 20, 30, 40]) {
+                        println "Your looped value: ${ravi}"
                     }
                 }
             }
         }
     }
 }
-
