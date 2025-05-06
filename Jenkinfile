@@ -13,3 +13,12 @@ pipeline {
                     }
 
                     def res1 = myfunc(10, 20)
+                    def res2 = myfunc(100, 200)
+
+                    echo "Result 1: ${res1}"
+                    echo "Result 2: ${res2}"
+                }
+            }
+        }
+    }
+}
