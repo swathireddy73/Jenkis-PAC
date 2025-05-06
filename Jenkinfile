@@ -1,20 +1,31 @@
 pipeline {
     agent any
+
+    parameters {
+        choice(name: 'env', choices: ['dev', 'prod', 'sit', 'qa', 'pre-prod'], description: 'Select environment')
+    }
+
+    environment {
+        subject = "jenkins pac"
+    }
+
     stages {
-        stage("working with loops") {
+        stage("stage1") {
             steps {
                 script {
-                  
-                    for (i in 1..10) {
-                        println "Your looped value: ${i}"
-                    }
+                    def var1 = 20
+                    def string = "this is Jenkins pac"
 
-                    
-                    for (ravi in [10, 20, 30, 40]) {
-                        println "Your looped value: ${ravi}"
-                    }
+                    echo "Hello, welcome to Jenkins PAC"
+                    echo "Here are your user-defined variables: ${var1}, ${string}"
+                    echo "Here is your global/predefined variable (build result): ${currentBuild.result}"
+                    echo "Here is your global/predefined variable (build ID): ${currentBuild.id}"
+                    echo "Here is your environment variable: ${env.subject}"
+                    echo "Here is your job name: ${env.JOB_NAME}"
+                    echo "Here is your selected parameter (env): ${params.env}"
                 }
             }
         }
     }
 }
+
