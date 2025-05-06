@@ -4,11 +4,14 @@ pipeline {
         stage("stage1") {
             steps {
                 script {
-                    
-                    def myfunc = {
+                    // Function with dynamic parameters
+                    def myfunc = { a, b ->
                         echo "Hello, welcome to functions concept"
+                        echo "You passed a = ${a}, b = ${b}"
                     }
-                    myfunc()
+
+                    myfunc(10, 20)
+                    myfunc(100, 200)
                 }
             }
         }
