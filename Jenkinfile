@@ -1,21 +1,16 @@
 pipeline {
     agent any
     stages {
-        stage("stage") {
+        stage("stage1") {
             steps {
                 script {
-                    def a = input message: 'Please enter value for a', parameters: [string(defaultValue: '10', description: 'This is the value of a', name: 'a')]
-                    def b = input message: 'Please enter value for b', parameters: [string(defaultValue: '20', description: 'This is the value of b', name: 'b')]
-
-                    if (a.toInteger() >= b.toInteger()) {
-                        echo "Your a value is big: ${a}"
-                    } else {
-                        echo "Your b value is big: ${b}"
+                    
+                    def myfunc = {
+                        echo "Hello, welcome to functions concept"
                     }
+                    myfunc()
                 }
             }
         }
     }
 }
-
-
