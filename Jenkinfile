@@ -9,16 +9,13 @@ pipeline {
                     // Overwrite file content
                     obj1.write("welcome to PAC file operation\n")
                     
-                    // Append additional content
+                    
                     obj1.append("this is my line to append\n")
 
-                    // Read and print each line
-                    def lines = obj1.readLines()
-                    for (line in lines) {
-                        echo "Line: ${line}"
+                    obj1.readLines()
+                    
                     }
                 }
             }
         }
-    }
-}
+   
